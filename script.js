@@ -26,13 +26,14 @@ const kitchen = {
 
       },
   },
+
   addIngredientToKettle(nameOfIngredient, amount) {
     for (const key in this) {
       if (nameOfIngredient === key && amount <= this[key]) {
         this[key] -= amount;
         this.kettle.ingredients[nameOfIngredient] = amount;
-      };
-    };
+      }
+    }
   },
 
   cook(recipe) {
@@ -43,7 +44,7 @@ const kitchen = {
         console.error('you cannot cook the ' + recipe + '. Try to add more ingredients.');
         break;
       }
-    };
+    }
     if (counter == Object.keys(magicBook.recipes[recipe]).length) console.log('Congrats! You can cook the ' + recipe + '!');
   },
 };
