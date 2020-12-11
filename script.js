@@ -40,23 +40,20 @@ const kitchen = {
     let counter = 0;
     for (const key in magicBook.recipes[recipe]) {
       if (Object.keys(magicBook.recipes[recipe]).includes(key) && this.kettle.ingredients[key] >= magicBook.recipes[recipe][key]) counter++;
-      else {
-        console.error('you cannot cook the ' + recipe + '. Try to add more ingredients.');
-        break;
-      }
+      else return('Error! You cannot cook the ' + recipe + '. Try to add more ingredients.');
     }
-    if (counter == Object.keys(magicBook.recipes[recipe]).length) console.log('Congrats! You can cook the ' + recipe + '!');
+    if (counter == Object.keys(magicBook.recipes[recipe]).length) return('Congrats! You can cook the ' + recipe + '!');
   },
 };
 
 kitchen.addIngredientToKettle('lava', 10);
 kitchen.addIngredientToKettle('evil', 999);
 
-kitchen.cook('littleDevil');
+console.log(kitchen.cook('littleDevil'));
 
-kitchen.addIngredientToKettle('poo', 53);
+kitchen.addIngredientToKettle('poo', 55);
 kitchen.addIngredientToKettle('bone', 10);
 kitchen.addIngredientToKettle('stone', 100);
 kitchen.addIngredientToKettle('nail', 100);
 
-kitchen.cook('golem');
+console.log(kitchen.cook('golem'));
